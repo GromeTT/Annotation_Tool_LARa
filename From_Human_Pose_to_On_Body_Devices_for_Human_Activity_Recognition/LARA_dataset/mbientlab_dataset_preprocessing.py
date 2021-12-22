@@ -6,18 +6,20 @@ Created on Oct 02, 2019
 
 '''
 
-import numpy as np
 import csv
-import os
-import sys
-import matplotlib.pyplot as plt
 import datetime
+import os
+import pickle
+import sys
+
+import matplotlib.pyplot as plt
+import numpy as np
+
 import csv_reader
 from sliding_window import sliding_window
-import pickle
 
-# folder path
-FOLDER_PATH = "path_to_dataset_LARa_Mbientlab"
+# path to data set
+FOLDER_PATH = "/data/calbrech/datasets"
 
 PERSONS = ['S14']
 
@@ -328,7 +330,7 @@ def generate_CSV(csv_dir, type_file, data_dir):
             f.append(data_dir + 'seq_{0:06}.pkl'.format(n))
 
     np.savetxt(csv_dir + type_file, f, delimiter="\n", fmt='%s')
-        
+
     return f
 
 
@@ -377,7 +379,7 @@ def create_dataset(identity_bool = False):
     # base_directory = '/path_where_sequences_will_ve_stored/mbientlab_50_persons/'
     # base_directory = '/path_where_sequences_will_ve_stored/mbientlab_10_recordings/'
     #base_directory = '/path_where_sequences_will_ve_stored/mbientlab_50_recordings/'
-    base_directory = '/path_where_sequences_will_ve_stored/mbientlab/'
+    base_directory = '/data/calbrech/datasets/lara/seg
 
     data_dir_train = base_directory + 'sequences_train/'
     data_dir_val = base_directory + 'sequences_val/'
